@@ -140,6 +140,36 @@ module Tags
             "<img src='http://placehold.it/350x150'>"
         end
     end
+    class YouTube < Liquid::Tag
+        Syntax = /^\s*([^\s]+)(\s+(\d+)\s+(\d+)\s*)?/
+
+        def initialize(tagName, markup, tokens)
+            super
+
+            if markup =~ Syntax then
+                @id = $1
+
+                if $2.nil? then
+                    @width = 640
+                    @height = 360
+                else
+                    @width = $2.to_i
+                    @height = $3.to_i
+                end
+            else
+                raise "No YouTube ID provided in the \"youtube\" tag"
+            end
+        end
+
+        def render(context)
+            "<div class='videoWrapper'>
+                <iframe width=\"#{@width}\" height=\"#{@height}\" src=\"//www.youtube.com/embed/#{@id}\" frameborder=\"0\"allowfullscreen></iframe>
+            </div>"
+            #"<iframe width=\"#{@width}\" height=\"#{@height}\" src=\"//www.youtube.com/embed/#{@id}?color=white&theme=light\"></iframe>"
+        end
+
+        Liquid::Template.register_tag "youtube", self
+    end
   Liquid::Template.register_tag('highlight', HighlightBlock)
   Liquid::Template.register_tag('post_url', PostUrl)
   Liquid::Template.register_tag('picture', Picture)
