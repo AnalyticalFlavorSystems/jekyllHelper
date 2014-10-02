@@ -2,9 +2,9 @@
   <div class="col-md-8 col-md-offset-2" style="background-color:#eeeeee;border-radius:5px;margin-top:50px;">
     <h1 class="text-center"><%= @post.title %></h1>
     <hr>
-    <p class="text-align:justify;">
+    <div style="text-align:justify;">
     <%= displayPosts(@post.content, 'post' => @post) %>
-    </p>
+  </div>
   </div>
 </div>
 
