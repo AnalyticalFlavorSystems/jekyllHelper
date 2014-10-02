@@ -43,7 +43,9 @@ class PostsController < ApplicationController
     @post = Post.new(params[:post])
     frontmatter = "
     ---<br/>
-    layout: post<br/>title: #{@post.title}<br/>
+    layout: post<br/>
+    title: #{@post.title}<br/>
+    subtitle: #{@post.subtitle}<br/>
     tags: #{@post.tags}<br/>
     date: #{@post.post_date} 12:00:00 <br/>
     author: #{@post.author}<br/>
@@ -69,7 +71,9 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     frontmatter = "
     ---<br/>
-    layout: post<br/>title: #{@post.title}<br/>
+    layout: post<br/>
+    title: #{@post.title}<br/>
+    subtitle: #{@post.subtitle}<br/>
     tags: #{@post.tags}<br/>
     date: #{@post.post_date} 12:00:00 <br/>
     author: #{@post.author}<br/>
