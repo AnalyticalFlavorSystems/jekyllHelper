@@ -21,11 +21,17 @@
     <%= f.text_field :title, class: "form-control" %>
   </div>
   <div class="col-md-6">
+    <%= f.label :subtitle %><br />
+    <%= f.text_field :subtitle, class: "form-control" %>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-md-5">
     <%= f.label :author %><br />
     <%= f.text_field :author, class: "form-control" %>
   </div>
 </div>
-<br/>
 <div class="row">
   <div class="col-md-3">
     <%= f.label :post_date %><br />
